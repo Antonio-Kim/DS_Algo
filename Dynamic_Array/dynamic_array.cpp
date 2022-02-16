@@ -1,24 +1,10 @@
 #include <iostream>
+#include <memory>
 using namespace std;
-
-// struct Node {
-//   string item;
-//   Node *next;
-// };
 
 int main()
 {
-    // Node n1, n2, n3;
-    // n1.item = "to";
-    // n2.item = "be";
-    // n3.item = "or";
-    // n1.next = &n2;
-    // n2.next = &n3;
-    // n3.next = NULL;
-
-    // for (Node *p = &n1; p != NULL; p = p->next) {
-    //   cout << "Item : " << p->item << endl; 
-    // }
+  // Using regular pointers
     int size;
     cout << "Enter size of array: ";
     cin >> size;
@@ -30,6 +16,18 @@ int main()
     for (int i = 0; i < size; i++) {
       cout << a[i] << endl;
     }
-    
-    delete[] a;
+  
+  // Using Smart Pointers
+  int size2;
+  cout << "Enter size of second array: ";
+  cin >> size2;
+  unique_ptr<int[]> b (new int[size2]);
+  for (int i = 0; i < size2; i++) {
+    b[i] = i;
+  }
+  for (int i = 0; i < size2; i++) {
+    cout << b[i] << endl;
+  }
+  
+  delete[] a;
 }

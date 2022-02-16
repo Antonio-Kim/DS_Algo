@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+template <typename T>
 struct LinkedList {
   LinkedList() {
     head = NULL;
@@ -28,7 +29,7 @@ struct LinkedList {
   }
 private:
   struct Node {
-    int data;
+    T data;
     Node *next;
   };
   Node *head;
@@ -37,8 +38,11 @@ private:
 };
 
 int main() {
-  LinkedList list1{};
+  LinkedList <int>list1{};
   list1.addHead(1);
   list1.addHead(2);
+  list1.addHead(5);
+  list1.addHead(4);
+  list1.addHead(6);
   list1.displayList();
 }
