@@ -43,10 +43,10 @@ int main(void) {
   LinkedList list1;
   initializeList(&list1);
   addHead(&list1, 1);
-  addHead(&list1, 3);
+  addHead(&list1, 2);
   addHead(&list1, 5);
   addHead(&list1, 4);
-  addHead(&list1, 2);
+  addHead(&list1, 6);
   displayList(&list1);
 
 // Displaying current List: 

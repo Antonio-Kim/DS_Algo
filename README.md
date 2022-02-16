@@ -11,10 +11,10 @@ As it currently stands, the repo should have the following languages:
 - C
 - C++
 - Java
+- JavaScript
 
 The goal is to add the following languages:
 - Python
-- JavaScript
 - C#
 - Kotlin
 - Swift
