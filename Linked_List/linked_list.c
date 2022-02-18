@@ -22,9 +22,10 @@ void displayList(LinkedList *list) {
   printf("Displaying current List: \n");
   Node *current = list->head;
   while(current != NULL) {
-    printf("%d\n", current->value);
+    printf("%d ", current->value);
     current = current->next;
   }
+  printf("\n");
 }
 
 void addHead(LinkedList *list, int data) {
@@ -39,6 +40,18 @@ void addHead(LinkedList *list, int data) {
   list->head = node;
 }
 
+void addTail(LinkedList *list, int data) {
+  Node *node = (Node *)malloc(sizeof(Node));
+  node->value = data;
+  node->next = NULL;
+  if (list->head == NULL) {
+    list->head = node;
+  } else {
+    list->tail->next = node;
+  }
+  list->tail = node;
+}
+
 int main(void) {
   LinkedList list1;
   initializeList(&list1);
@@ -50,10 +63,14 @@ int main(void) {
   displayList(&list1);
 
 // Displaying current List: 
-// 2
-// 4
-// 5
-// 3
-// 1
+// 6 4 5 2 1
+
+  addTail(&list1, 3);
+  addTail(&list1, 7);
+  displayList(&list1);
+
+// Displaying current List:
+// 6 4 5 2 1 3 7
+
   return 0;
 }
