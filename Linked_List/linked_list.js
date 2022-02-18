@@ -15,9 +15,10 @@ class LinkedList {
     console.log("Displaying current list: ");
     let current = this.head;
     while (current != null) {
-      console.log(`${current.data}`);
+      process.stdout.write(`${current.data} `);
       current = current.next;
     }
+    console.log("");
   }
 
   addHead(value) {
@@ -30,6 +31,16 @@ class LinkedList {
     }
     this.head = node;
   }
+
+  addTail(value) {
+    let node = new Node(value);
+    if (this.head == null) {
+      this.head = node; 
+    } else {
+      this.tail.next = node;
+    }
+    this.tail = node;
+  }
 }
 
 const list = new LinkedList();
@@ -39,4 +50,7 @@ list.addHead(2);
 list.addHead(5);
 list.addHead(4);
 list.addHead(6);
+list.displayList();
+list.addTail(3);
+list.addTail(7);
 list.displayList();

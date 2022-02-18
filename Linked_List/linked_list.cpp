@@ -12,9 +12,10 @@ struct LinkedList {
     cout << "Displaying current list: " << endl;
     Node *p = head;
     while(p != NULL) {
-      cout << p->data << endl;
+      cout << p->data << " ";
       p = p->next;
     }
+    cout << "\n";
   }
   void addHead(int value) {
     Node *node = new Node();
@@ -26,6 +27,18 @@ struct LinkedList {
       node->next = head;
     }
     head = node;
+  }
+
+  void addTail(int value) {
+    Node *node = new Node();
+    node->data = value;
+    node->next = NULL;
+    if (head == NULL) {
+      head = node;
+    } else {
+      tail->next = node;
+    }
+    tail = node;
   }
 private:
   struct Node {
@@ -44,5 +57,8 @@ int main() {
   list1.addHead(5);
   list1.addHead(4);
   list1.addHead(6);
+  list1.displayList();
+  list1.addTail(3);
+  list1.addTail(7);
   list1.displayList();
 }
