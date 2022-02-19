@@ -40,6 +40,19 @@ struct LinkedList {
     }
     tail = node;
   }
+
+  struct Node *getNode(int value) {
+    Node *node = head;
+    while (node != NULL) {
+      if (node->data == value) {
+        cout << "Value found\n";
+        return node;
+      }
+      node = node->next;
+    }
+    cout << "Value not found\n";
+    return NULL;
+  }
 private:
   struct Node {
     T data;
