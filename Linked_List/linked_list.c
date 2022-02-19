@@ -52,6 +52,26 @@ void addTail(LinkedList *list, int data) {
   list->tail = node;
 }
 
+Node *getNode(LinkedList *list, int data) {
+  Node *node = list->head;
+  while (node != NULL) {
+    if (node->value == data) {
+      printf("Value found\n");
+      return node;
+    }
+    node = node->next;
+  }
+  printf("Value Not Found\n");
+  return NULL;
+}
+
+void deleteNode(LinkedList *list, Node *node) {
+  if (node == list->head) {
+
+  }
+  free(node);
+}
+
 int main(void) {
   LinkedList list1;
   initializeList(&list1);
@@ -71,6 +91,8 @@ int main(void) {
 
 // Displaying current List:
 // 6 4 5 2 1 3 7
+
+  getNode(&list1, 10);
 
   return 0;
 }
