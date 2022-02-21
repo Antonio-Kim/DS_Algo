@@ -53,6 +53,24 @@ struct LinkedList {
     cout << "Value not found\n";
     return NULL;
   }
+
+  // Not Complete
+  void deleteNode(struct Node *node) {
+    if (node == head) {
+      if (head->next == NULL) {
+        head = tail = NULL;
+      } else {
+        head = head->next;
+      }
+    } else {
+      struct Node *temp = head;
+      while (temp != NULL && temp->next != node) {
+        temp = temp->next;
+      }
+      temp->next = node->next;
+    }
+    delete(node);
+  }
 private:
   struct Node {
     T data;
@@ -74,4 +92,7 @@ int main() {
   list1.addTail(3);
   list1.addTail(7);
   list1.displayList();
+//   struct Node *node = list1.getNode(7);
+//   list1.deleteNode(node);
+//   list1.displayList();
 }

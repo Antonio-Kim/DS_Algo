@@ -54,6 +54,23 @@ class LinkedList {
     console.log("Value not found.");
     return null;
   }
+
+  deleteNode(node) {
+    if (this.head == node) {
+      if (this.head.next == null) {
+        this.head = this.tail = null;
+      } else {
+        this.head = this.head.next;
+      }
+    } else {
+      let temp = this.head;
+      while (temp != null && temp.next != node) {
+        temp = temp.next;
+      }
+      temp.next = node.next;
+    }
+  }
+
 }
 
 const list = new LinkedList();
@@ -67,4 +84,8 @@ list.displayList();
 list.addTail(3);
 list.addTail(7);
 list.displayList();
-list.getNode(5);
+list.deleteNode(list.getNode(7));
+list.deleteNode(list.getNode(6));
+list.deleteNode(list.getNode(5));
+list.deleteNode(list.getNode(4));
+list.displayList();
