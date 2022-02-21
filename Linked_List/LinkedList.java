@@ -39,6 +39,19 @@ public class LinkedList {
     tail = node;
   }
 
+  public Node getNode(int value) {
+    Node current = head;
+    while (current != null) {
+      if (current.data == value) {
+        System.out.println("Value found.");
+        return current;
+      }
+      current = current.next;
+    }
+    System.out.println("Value not found.");
+    return null;
+  }
+
   public static void main(String[] args) {
     LinkedList list = new LinkedList();
     list.addHead(1);
@@ -50,5 +63,6 @@ public class LinkedList {
     list.addTail(3);
     list.addTail(7);
     list.displayList();
+    list.getNode(3);
   }
 }

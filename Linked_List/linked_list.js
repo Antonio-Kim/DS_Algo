@@ -41,6 +41,19 @@ class LinkedList {
     }
     this.tail = node;
   }
+
+  getNode(value) {
+    let current = this.head;
+    while (current != null) {
+      if (current.data == value) {
+        console.log("Value found.");
+        return current;
+      }
+      current = current.next;
+    }
+    console.log("Value not found.");
+    return null;
+  }
 }
 
 const list = new LinkedList();
@@ -54,3 +67,4 @@ list.displayList();
 list.addTail(3);
 list.addTail(7);
 list.displayList();
+list.getNode(5);
