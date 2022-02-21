@@ -66,8 +66,28 @@ Node *getNode(LinkedList *list, int data) {
 }
 
 void deleteNode(LinkedList *list, Node *node) {
-  if (node == list->head) {
-
+  // If the node is at head
+  if (node == list->head) { 
+    // and there's only one node
+    if (list->head->next == NULL) {
+      list->head = list->tail = NULL;
+    } else {
+      list->head = list->head->next;
+    }
+  } else {
+    // Create a temporary pointer to Linked List and assign to head
+    // while the pointer is not empty, and the next value is not the node,
+    // traverse through the Linked List. The while-loop will terminate
+    // if the value is empty, or it has found the node to be deleted on 
+    // the next node that it's pointing to.
+    Node *temp = list->head;
+    while (temp != NULL && temp->next != node) {
+      temp = temp->next;
+    }
+    // Once the node is found, it will then assign the node that is currently
+    // is at, to point to the node after the targeted node. The function will
+    // delete the node and terminate.
+    temp->next = node->next;
   }
   free(node);
 }
@@ -92,7 +112,12 @@ int main(void) {
 // Displaying current List:
 // 6 4 5 2 1 3 7
 
-  getNode(&list1, 10);
+  deleteNode(&list1, getNode(&list1, 7));
+  deleteNode(&list1, getNode(&list1, 6));
+  deleteNode(&list1, getNode(&list1, 5));
+  deleteNode(&list1, getNode(&list1, 4));
+  displayList(&list1);
+
 
   return 0;
 }
